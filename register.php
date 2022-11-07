@@ -1,4 +1,4 @@
-<?php include_once("includes/header.php"); ?> 
+<?php include_once("includes/header.inc.php"); ?> 
 
 <section class="register">
     <h2>Registrera</h2>
@@ -14,4 +14,4 @@
 </section>
 
 
-<?php include_once("includes/footer.php"); ?> 
+<?php include_once("includes/footer.inc.php"); ?> 

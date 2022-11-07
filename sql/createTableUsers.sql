@@ -4,3 +4,10 @@ CREATE TABLE users (
     users_pwd LONGTEXT NOT NULL, 
     users_email TINYTEXT NOT NULL
 );
+
+CREATE TABLE cats (
+    cats_id INT(11), 
+    cats_breed TINYTEXT NOT NULL, 
+    cats_info LONGTEXT NOT NULL,
+    cats_picture TINYTEXT NOT NULL
+);
