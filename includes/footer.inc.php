@@ -1,11 +1,13 @@
-    </div>
-    <div class="wrapper">
-        <footer id="main-footer">
-            <p>Sidfot</p>
-        </footer>
-    </div>
+  </div>
 
-    <script src="js/main.js"></script>
-    
-</body>
-</html>
+  <div class="wrapper">
+    <footer id="mainfooter">
+      <p>Här är webbplatsens sidfot. Samma för alla undersidor.</p>
+    </footer><!-- /mainfooter -->
+  </div><!-- /container -->
+
+  <script src="js/main.js"></script>
+
+  </body>
+
+  </html>
