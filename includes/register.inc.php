@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
   include("../classes/register-controller.classes.php");
 
   // Instantiate registerController class
-  $register = new RegisterController($alias, $pwd, $pwdrepeat, $email);
+  $register = new RegisterController($alias, $email, $pwd, $pwdrepeat);
 
   // Running error handlers and user register
   $register->registerUser();

@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class RegisterController extends Register
 {
   private $alias;
@@ -53,12 +57,12 @@ class RegisterController extends Register
 
   private function emailIsValid()
   {
-    return !filter_var($this->email, FILTER_VALIDATE_EMAIL);
+    return filter_var($this->email, FILTER_VALIDATE_EMAIL);
   }
 
   private function pwdsDoMatch()
   {
-    return $this->pwd != $this->pwdrepeat;
+    return $this->pwd == $this->pwdrepeat;
   }
 
   private function doesUserExist()

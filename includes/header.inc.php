@@ -28,7 +28,7 @@ error_reporting(E_ALL);
 
       <nav>
         <div class="nav-logo">
-          <a href="index.php"><img src="res/logo.jpg" width="75px" height="75px" alt="Cats logo" /></a>
+          <a href="index.php"><img src="res/logo.png" width="75px" height="75px" alt="Cats logo" /></a>
         </div>
         <div class="nav-links">
           <ul class="menu-main">
