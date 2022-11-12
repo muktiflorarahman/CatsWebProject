@@ -5,7 +5,7 @@ class Register extends Dbh
   protected function setUser($alias, $pwd, $email)
   {
     $stmt = $this->connect()->prepare("INSERT INTO users (users_alias, users_pwd, users_email) VALUES (?, ?, ?);");
-    var_dump($stmt); 
+
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
     if (!$stmt->execute(array($alias, $hashedPwd, $email))) {

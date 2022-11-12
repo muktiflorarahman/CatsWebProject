@@ -1,15 +1,17 @@
 <?php
-    class Dbh{
-        protected function connect() {
-            try {
-                //code...
-                $username = "root";
-                $password = ""; 
-                $dbh = new PDO("mysql:host=localhost;dbname=kattadoption", $username, $password);
-            } catch (PDOException $ex) {
-                //throw $ex;
-                print("error: " . $ex->getMessage() . "<br>"); 
-                die(); 
-            }
-        }
+
+class Dbh
+{
+  protected function connect()
+  {
+    try {
+      $username = "root";
+      $password = "";
+      $dbh = new PDO('mysql:host=localhost;dbname=kattadoption', $username, $password);
+      return $dbh;
+    } catch (PDOException $ex) {
+      print("Error: " . $ex->getMessage() . "</br>");
+      die();
     }
+  }
+}

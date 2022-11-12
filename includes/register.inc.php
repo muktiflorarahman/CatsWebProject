@@ -1,29 +1,22 @@
 <?php
-    if (isset($_POST['submit'])) {
-       //får datat från formuläret 
-       $alias = $_POST['alias'];
-       $email = $_POST['email'];
-       $pwd = $_POST['pwd'];
-       $pwdRepeat = $_POST['pwdrepeat'];
 
-      //includes av några klassfiler
-      include("../classes/dbh.classes.php");
-      include("../classes/register.classes.php");
-      include("../classes/registerController.classes.php");
+if (isset($_POST["submit"])) {
+  // Getting the data from the form
+  $alias = $_POST["alias"];
+  $email = $_POST["email"];
+  $pwd = $_POST["pwd"];
+  $pwdrepeat = $_POST["pwdrepeat"];
 
-      //gör en instans av klassen RegisterController
+  include("../classes/dbh.classes.php");
+  include("../classes/register.classes.php");
+  include("../classes/register-controller.classes.php");
 
-      $register = new RegisterController($alias, $email, $pwd, $pwdRepeat); 
+  // Instantiate registerController class
+  $register = new RegisterController($alias, $pwd, $pwdrepeat, $email);
 
-      //gå igenom felkontrollerna och registrera användaren
-      $register->registerUser();
+  // Running error handlers and user register
+  $register->registerUser();
 
-
-      //gå tillbaka till huvudsidan
-      header("location: ../index.php?error=none");
-
-      
-      
-
-
-    }
+  // Going back front page
+  header("location: ../index.php?error=none");
+}
