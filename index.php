@@ -1,26 +1,45 @@
-<?php include_once('includes/header.inc.php'); ?>
+<?php 
+//inkluderar filen db_connect för att koppla databasen
+include("config/db_connect.php"); 
 
-<section class="index-intro">
-  <h1>This is an introduction</h1>
-  <p>Here is an important paragraph that explains the purpose of the website</p>
-</section>
+//skapar en query till databasen
+$query = "SELECT * FROM `cats`;";
 
-<section class="index-main">
-  <h2>Some basic categories</h2>
-  <div class="index-main-list">
-    <div class="index-main-item">
-      <h3>Fun stuff</h3>
-    </div>
-    <div class="index-main-item">
-      <h3>Serious stuff</h3>
-    </div>
-    <div class="index-main-item">
-      <h3>Exciting stuff</h3>
-    </div>
-    <div class="index-main-item">
-      <h3>Boring stuff</h3>
-    </div>
-  </div>
-</section>
+$stmt = $pdo->prepare($query);
+$stmt->execute(); 
+$cats = $stmt->fetchAll(); 
+var_dump($cats); 
+?>
 
-<?php include_once('includes/footer.inc.php') ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<?php include("templates/header.php"); ?>
+
+    <h4 class="center">Katter utan familj</h4>
+
+    <div class="container">
+        <div class="row">
+            <?php foreach($cats as $cat) :?>
+                <div class="col">
+                    <div class="card">
+                        <img src="img/cat-profile.svg" alt="Cat profile" class="cat">
+                        <div class="card-content">
+                            <h6>
+                                <?php echo htmlspecialchars($cat["cats_name"]); ?>
+                            </h6>
+                            <p>
+                            <?php echo htmlspecialchars($cat["cats_breed"]); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+<?php include("templates/footer.php"); ?>
+</html>

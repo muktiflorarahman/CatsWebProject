@@ -1,9 +1,9 @@
-INSERT INTO cats (cats_breed, cats_info, cats_picture)
-VALUES ('Bengal', 'Bengal honkatt', 'bengal.jpg'), 
-('Mainecoon', 'Mainecoon hankatt', 'mainecoon.jpeg'),
-('Manx', 'Manx honkatt', 'manx.jpg'),
-('Ragdoll', 'Ragdoll hankatt', 'ragdoll.jpeg'),
-('Siamese', 'Siamese honkatt', 'siamese.jpg'),
-('Sphynx', 'Sphynx honkatt', 'bengal.webp');
+INSERT INTO cats (cats_name, cats_breed, cats_info, cats_picture)
+VALUES ('Tom','Bengal', 'Bengal honkatt', 'bengal.jpg'), 
+('Simba','Mainecoon', 'Mainecoon hankatt', 'mainecoon.jpeg'),
+('Nemo','Manx', 'Manx honkatt', 'manx.jpg'),
+('Kitkat','Ragdoll', 'Ragdoll hankatt', 'ragdoll.jpeg'),
+('Coco','Siamese', 'Siamese honkatt', 'siamese.jpg'),
+('Leo','Sphynx', 'Sphynx honkatt', 'bengal.webp');
 
 
