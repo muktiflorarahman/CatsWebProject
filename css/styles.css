@@ -1,56 +1,157 @@
-body{
-    background-color: #acacac;
-    
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-.container{
-    width: 600px; 
-    margin: 0 auto; 
-    
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
-.topnav{
-    background-color: #797979;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: #111111;
+}
+
+
+
+.page-content {
+    background-color: #a2b2c9;
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+}
+
+.container h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 1rem auto 2rem;
+}
+
+.topnav {
+    background-color: #111;
     height: 3rem;
-    display:grid;
-    grid-template-columns: 3fr 1fr 5fr; 
+    display: grid;
+    grid-template-columns: 3fr 1fr 5fr;
 }
 
-.topnav .button{
-    min-height: 3rem; 
-
+.topnav .button {
+    line-height: 3rem;
 }
 
-.brand-text{
-    font-size: 1.5rem; 
-    color: white; 
+.brand-text {
+    font-size: 22px;
+    color: white;
     text-decoration: none;
     line-height: 3rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
 }
 
-.user{
-    color: #cecece;
+.user {
+    color: white;
     line-height: 3rem;
-    font-size: 1.5rem;
-
+    font-size: 1.15rem;
 }
 
-.nav-link{
-   float:right; 
+.nav-link {
+    float: right;
 }
 
-.topnav ul{
+.topnav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0; 
-    overflow: hidden; 
+    padding: 0;
+    overflow: hidden;
 }
 
-.topnav li a{
-    display: block; 
+
+li.nav-link {
+    background-color: #333333;
+    display: block;
+    text-align: center;
+    width: 8rem;
+    border: solid grey 1px;
+    min-height: 3rem;
+}
+
+.topnav li a {
     color: white;
-    text-align: center; 
-    padding: 14px 16px; 
     text-decoration: none;
+}
+
+li.nav-link:hover {
+    background-color: #555555;
+}
+
+.add {
+    margin-top: 2rem;
+}
+
+.btn-details {
+    width: 100%;
+}
+
+h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 0 1rem;
+}
+
+.card {
+    background-color: #bbe2fa;
+    /* color, */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 275px;
+    max-width: 275px;
+    height: 350px;
+    max-height: 350px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    border: 1px solid black;
+    margin-bottom: 1rem;
+
 }
