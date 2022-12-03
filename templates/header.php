@@ -33,7 +33,7 @@ $_SESSION["useralias"] = "mukti";
                     </div>
                     <ul>
                         <li class="nav-link">
-                            <a href="add.php" class="button">Ny katt</a>
+                            <a href="addCat.php" class="button">Ny katt</a>
                         </li>
                         <li class="nav-link">
                             <a href="logout.php" class="button">LOGGA UT</a>

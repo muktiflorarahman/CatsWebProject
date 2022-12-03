@@ -155,3 +155,104 @@ h4 {
     margin-bottom: 1rem;
 
 }
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.card-top {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+}
+
+.card-top img {
+    width: 100%;
+    height: 75%;
+}
+
+.card-body {
+    position: absolute;
+    top: 62%;
+    width: 100%;
+
+}
+
+.card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* style for buttons and submit button */
+
+button,
+input[type=submit] {
+    background-color: black;
+    display: inline-block;
+    border: none;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 10rem;
+
+}
+
+button>a,
+input[type=submit] {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+button:hover,
+input[type=submit]:hover,
+button>a:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* skapar media queries */
+
+@media only screen and (max-width: 925px) {
+    .col {
+        grid-template-columns: 1fr 1fr;
+        margin: 0 0.5rem;
+        gap: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .col {
+        grid-template-columns: 1fr;
+        margin: 0 0.5rem;
+        gap: 0.5rem;
+    }
+}
