@@ -1,5 +1,33 @@
 <?php
-require("catsList.php")
+include("config/db_connect.php");
+require("catsList.php");
+require("catValidator.php");
+
+$errors = [];
+if (isset($_POST["submit"])) {
+    /* validerar kattfälten */
+    $catValidation = new catValidator($_POST);
+    $errors = $catValidation->validateForm();
+
+    $nameError = $errors['name'] ?? '';
+    $breedError = $errors['breed'] ?? '';
+    $infoError = $errors['info'] ?? '';
+    $pictureError = $errors['picture'] ?? '';
+
+    if (array_filter($errors)) {
+        //echo 'errors in form';
+        echo "Name" . $nameError;
+        echo "Breed" . $breedError;
+        echo "Info" . $infoError;
+        echo "Picture" . $pictureError;
+    } else {
+        // escape sql chars
+        $name = htmlspecialchars($_POST["name"]);
+        $breed = htmlspecialchars($_POST["breed"]);
+        $info = htmlspecialchars($_POST["info"]);
+        $picture = htmlspecialchars($_POST["picture"]);
+    }
+}
 
 ?>
 
@@ -12,38 +40,58 @@ require("catsList.php")
             Lägg till ny katt
         </h4>
 
-        <label for="name">Kattens namn</label>
-        <input type="text" name="name" id="name" value="<?php $temp = $_POST['name'] ?? ''; ?> <?php echo htmlspecialchars($temp); ?>" />
-        <div class="error">
-            <?php echo $errors['name'] ?? ''; ?>
+        <div class="form-group">
+            <label for="name">Kattens namn</label>
+            <input <?php if (isset($errors['name'])) {
+                        echo 'class="input-error"';
+                    } ?> placeholder="Fyll i kattens namn..." type="text" name="name" id="name" value="<?php echo !empty($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" />
+            <div class="error">
+                <?php echo $errors['name'] ?? '' ?>
+            </div>
         </div>
 
-        <label for="breed">Kattens ras</label>
-        <select name="breed" id="breed" value="<?php $temp = $_POST['breed'] ?? ''; ?> <?php echo htmlspecialchars($temp); ?>">
+        <!-- -------- -->
 
-            <option value="" disabled selected>Välj ras</option>
-            <?php
-            /* Skapar option taggar med foreach sats */
-            foreach ($cats_list as $breed) {
-                /* Gör en string concatenation för att få ut alla raser */
-                echo "<option value='" . $breed . "'>" . $breed . "</option>";
-            }
-            ?>
-        </select>
-        <div class="error">
-            <?php echo $errors['breed'] ?? ''; ?>
+        <div class="form-group">
+            <label for="breed">Kattens ras</label>
+            <select <?php if (isset($errors['breed'])) {
+                        echo 'class="input-error"';
+                    } ?> form="cat-form" name="breed" id="breed" value="<?php echo !empty($_POST['breed']) ? htmlspecialchars($_POST['breed']) : '' ?>">
+                <option value="" disabled selected>Välj ras</option>
+                <?php
+                foreach ($cats_list as $cat) {
+                    echo "<option value='" . $cat . "'>" . $cat . "</option>";
+                }
+                ?>
+            </select>
+            <div class="error">
+                <?php echo $errors['breed'] ?? '' ?>
+            </div>
         </div>
 
-        <label for="info">Information om katten</label>
-        <textarea name="info" id="info" rows="4" cols="50" placeholder="information om katten som ska adopteras..." value="<?php $temp = $_POST['info'] ?? ''; ?> <?php echo htmlspecialchars($temp); ?>"></textarea>
-        <div class="error">
-            <?php echo $errors['info'] ?? ''; ?>
+        <!-- ----- -->
+
+        <div class="form-group">
+            <label for="info">Information om katten</label>
+            <textarea <?php if (isset($errors['info'])) {
+                            echo 'class="input-error"';
+                        } ?> placeholder="Information om katten som ska adopteras..." id="info" rows="4" cols="50" name="info" value="<?php echo !empty($_POST['info']) ? htmlspecialchars($_POST['info']) : '' ?>;"></textarea>
+
+            <div class="error">
+                <?php echo $errors['info'] ?? '' ?>
+            </div>
         </div>
 
-        <label for="picture">Bild på katten</label>
-        <input type="text" name="picture" id="picture" placeholder="Filens namn..." value="<?php $temp = $_POST['picture'] ?? ''; ?> <?php echo htmlspecialchars($temp); ?>" />
-        <div class="error">
-            <?php echo $errors['picture'] ?? ''; ?>
+        <!-- ----------- -->
+
+        <div class="form-group">
+            <label for="picture">Bild på katten</label>
+            <input <?php if (isset($errors['picture'])) {
+                        echo 'class="input-error"';
+                    } ?> placeholder="Filens namn..." type="text" name="picture" id="picture" value="<?php echo !empty($_POST['picture']) ? htmlspecialchars($_POST['picture']) : '' ?>" />
+            <div class="error">
+                <?php echo $errors['picture'] ?? '' ?>
+            </div>
         </div>
 
         <div class="button">
