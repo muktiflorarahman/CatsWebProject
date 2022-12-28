@@ -38,13 +38,15 @@ img {
 }
 
 body {
-    background-color: #111111;
+    background-color: #eeeeee;
 }
 
 
 
 .page-content {
     background-color: #a2b2c9;
+    background-color: #eeeeee;
+
     position: relative;
     min-height: 100vh;
 }
@@ -173,6 +175,10 @@ h4 {
     height: 75%;
 }
 
+.cat-img {
+    max-width: 100%;
+}
+
 .card-body {
     position: absolute;
     top: 62%;
@@ -216,9 +222,7 @@ button>a:hover {
 }
 
 /* Styling for addCat form */
-
 form {
-    border: 1px solid red;
     max-width: 500px;
     margin: 3rem auto;
     padding: 2rem 1.5rem;
@@ -231,10 +235,11 @@ form {
 
 label {
     font-weight: bold;
-
 }
 
 input[type=text],
+input[type=email],
+input[type=password],
 textarea,
 select {
     width: 100%;
@@ -248,20 +253,48 @@ select {
 textarea {
     resize: none;
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-
 }
 
-.add-form {
+.add-form,
+.login- {
     border-radius: 5px;
     background-color: #f2f2f2;
 }
 
 input[type=submit] {
     background-color: #4caf50;
-
 }
 
+input[type=text].input-error,
+input[type=email].input-error,
+input[type=password].input-error,
+select.input-error,
+textarea.input-error {
+    border: 1px solid red;
+}
 
+.error {
+    color: red;
+    font-size: 0.75rem;
+    margin: 0;
+    min-height: 0.75rem;
+}
+
+.cat-details {
+    background-color: #b3c7cc;
+    color: #222;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cat-info p {
+    margin: 10px 0px;
+    padding-right: 1rem;
+
+}
 
 
 

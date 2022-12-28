@@ -1,83 +1,85 @@
 <?php
-/* För att ta emot formuläret från addCat.php */
+
+// Create a cat validator class to handle validation
 class CatValidator
 {
-    /* medlemsvariabler*/
-    private $data;
-    private $errors = [];
-    private static $fields = ["name", "info", "picture"];
+  // Member variables
+  private $data;
+  private $errors = [];
+  private static $fields = ['name', 'info', 'picture'];
 
-    /* konstruktor */
+  // Constructor which takes in POST data from the form
+  public function __construct($post_data)
+  {
+    $this->data = $post_data;
+  }
 
-    public function __construct($postData)
-    {
-        $this->data = $postData;
+  public function validateForm()
+  {
+    // Check 'required fields'-presence in the data
+    foreach (self::$fields as $field) {
+
+      if (!array_key_exists($field, $this->data)) {
+        trigger_error("$field is not present in data");
+        return;
+      }
     }
 
+    $this->validateName();
+    $this->validateBreed();
+    $this->validateInfo();
+    $this->validatePicture();
 
+    return $this->errors;
+  }
 
-    public function validateForm()
-    {
-        // Check 'required fields'-presence in the data
-        foreach (self::$fields as $field) {
+  // Create methods to validate individual fields
+  // Create a method to validate an name
+  private function validateName()
+  {
+    // Trim out any white space
+    $val = trim($this->data['name']);
 
-            if (!array_key_exists($field, $this->data)) {
-                trigger_error("$field is not present in data");
-                return;
-            }
-        }
-
-        $this->validateName();
-        $this->validateBreed();
-        $this->validateInfo();
-        $this->validatePicture();
-
-        return $this->errors;
+    // Is the value empty
+    if (empty($val)) {
+      $this->addError('name', 'name cannot be empty');
     }
+  }
 
-    private function validateName()
-    {
-        /* vi trimmar bort mellanslag */
-        $val = trim($this->data["name"]);
-
-        /* kollar om fältet är tomt */
-        if (empty($val)) {
-            $this->addError("name", "Namn fältet får ej vara tomt!");
-        }
+  // Create a method to validate the breed
+  private function validateBreed()
+  {
+    $option = isset($_POST['breed']) ? $_POST['breed'] : false;
+    if (!$option) {
+      $this->addError('breed', 'breed must have a value');
     }
+  }
 
-    private function validateBreed()
-    {
-        $option = isset($_POST["breed"]) ? $_POST["breed"] : false;
-        if (!$option) {
-            $this->addError("breed", "Välj en ras.");
-        }
+  private function validateInfo()
+  {
+    // Trim out any white space
+    $val = trim($this->data['info']);
+
+    // Is the value empty
+    if (empty($val)) {
+      $this->addError('info', 'info cannot be empty');
     }
+  }
 
-    private function validateInfo()
-    {
-        /* vi trimmar bort mellanslag */
-        $val = trim($this->data["info"]);
+  private function validatePicture()
+  {
+    // Trim out any white space
+    $val = trim($this->data['picture']);
 
-        /* kollar om fältet är tomt */
-        if (empty($val)) {
-            $this->addError("info", "Informationsfältet får ej vara tomt!");
-        }
+    // Is the value empty
+    if (empty($val)) {
+      $this->addError('picture', 'picture cannot be empty');
     }
+  }
 
-    private function validatePicture()
-    {
-        /* vi trimmar bort mellanslag */
-        $val = trim($this->data["picture"]);
-
-        /* kollar om fältet är tomt */
-        if (empty($val)) {
-            $this->addError("picture", "Bildfältet får ej vara tomt!");
-        }
-    }
-
-    private function addError($key, $message)
-    {
-        $this->errors[$key] = $message;
-    }
+  // Return an error array once all checks are done
+  private function addError($key, $val)
+  {
+    $this->errors[$key] = $val;
+  }
 }
