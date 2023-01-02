@@ -40,9 +40,9 @@ include("templates/header.php");
 
             <div class="btn-group login-person">
                 <input type="submit" class="btn" name="adopt" value="adoptera">
+                <a href="index.php" class="a-back"><button class="btn-back" type="button">Gå tillbaka ></button></a>
             </div>
         </form>
-        <a href="index.php" class="a-back"><button class="btn-back">Gå tillbaka ></button></a>
 
     <?php else : ?>
         <h5>Det finns ingen katt med id-nummer <?php echo ($id) ?></h5>

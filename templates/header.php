@@ -30,21 +30,37 @@ if ($_SERVER["QUERY_STRING"] == "noname") {
                         <?php echo $_SESSION["username"]; ?>
                     </div>
                     <ul>
-                        <li class="nav-link">
-                            <a href="addCat.php" class="button">Ny katt</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="logout.php" class="button">LOGGA UT</a>
-                        </li>
+                        <a href="logout.php" class="button">
+                            <li class="nav-link">
+                                LOGGA UT
+                            </li>
+                        </a>
+                        <a href="addCat.php" class="button">
+                            <li class="nav-link">
+                                NY KATT
+                            </li>
+                        </a>
+                        <?php if ($_SESSION['username'] == 'mukti') { ?>
+                            <a href="upload.php" class="button">
+                                <li class="nav-link">
+                                    NY BILD
+                                </li>
+                            </a>
+                        <?php } ?>
+
 
                     <?php } else { ?>
 
-                        <li class="nav-link">
-                            <a href="register.php" class="button">NY ANVÄNDARE</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="login.php" class="button">LOGGA IN</a>
-                        </li>
+                        <a href="register.php" class="button">
+                            <li class="nav-link">
+                                NY ANVÄNDARE
+                            </li>
+                        </a>
+                        <a href="login.php" class="button">
+                            <li class="nav-link">
+                                LOGGA IN
+                            </li>
+                        </a>
 
                     <?php } ?>
 

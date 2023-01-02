@@ -93,8 +93,11 @@
                 </div>
 
 
-                <div class="button register-person">
-                    <input type="submit" name="submit" value="Skicka" class="btn">
+                <div class="btn-group login-person">
+                    <input type="submit" name="submit" value="Registrera" class="btn" />
+                    <a href="login.php">
+                        <button type="button" class="link">Logga in></button>
+                    </a>
                 </div>
 
             </form>

@@ -38,15 +38,12 @@ img {
 }
 
 body {
-    background-color: #eeeeee;
+    background-color: #111111;
+    color: white;
 }
-
-
 
 .page-content {
     background-color: #a2b2c9;
-    background-color: #eeeeee;
-
     position: relative;
     min-height: 100vh;
 }
@@ -59,6 +56,7 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto 2rem auto;
+    color: black;
 }
 
 .container h2 {
@@ -70,8 +68,10 @@ body {
 .topnav {
     background-color: #111;
     height: 3rem;
-    display: grid;
-    grid-template-columns: 3fr 1fr 5fr;
+    display: flex;
+    justify-content: space-between;
+    /* display: grid;
+  grid-template-columns: 3fr 1fr 5fr; */
 }
 
 .topnav .button {
@@ -103,8 +103,8 @@ body {
     overflow: hidden;
 }
 
-
 li.nav-link {
+    color: white;
     background-color: #333333;
     display: block;
     text-align: center;
@@ -135,17 +135,22 @@ h4 {
     margin-bottom: 1rem;
 }
 
+.row {}
+
 .col {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin: 0 1rem;
 }
 
 .card {
     background-color: #bbe2fa;
-    /* color, */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
     width: 275px;
     max-width: 275px;
     height: 350px;
@@ -155,14 +160,32 @@ h4 {
     position: relative;
     border: 1px solid black;
     margin-bottom: 1rem;
-
 }
 
+@media only screen and (max-width: 925px) {
+    .col {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .col {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0.25rem;
+    }
+}
+
+/* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 .card-top {
     width: 100%;
@@ -175,15 +198,11 @@ h4 {
     height: 75%;
 }
 
-.cat-img {
-    max-width: 100%;
-}
-
 .card-body {
     position: absolute;
-    top: 62%;
     width: 100%;
-
+    top: 62%;
+    text-align: center;
 }
 
 .card-bottom {
@@ -193,44 +212,23 @@ h4 {
     right: 0;
 }
 
-/* style for buttons and submit button */
-
-button,
-input[type=submit] {
-    background-color: black;
-    display: inline-block;
-    border: none;
-    outline: 0;
-    text-align: center;
-    cursor: pointer;
-    padding: 0.5rem;
-    min-width: 10rem;
-
+.card p {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
 }
 
-button>a,
-input[type=submit] {
-    color: white;
-    text-decoration: none;
-    font-size: 1.3rem;
+.cat-img {
+    max-width: 100%;
 }
 
-button:hover,
-input[type=submit]:hover,
-button>a:hover {
-    opacity: 0.7;
-}
-
-/* Styling for addCat form */
 form {
     max-width: 500px;
-    margin: 3rem auto;
-    padding: 2rem 1.5rem;
+    margin: 20px auto;
+    padding: 1.25rem 1rem;
 }
 
-
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 label {
@@ -245,7 +243,7 @@ select {
     width: 100%;
     padding: 0.5rem 1rem;
     margin: 0;
-    border: 1px solid #555555;
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -255,14 +253,28 @@ textarea {
     font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.add-form,
-.login- {
-    border-radius: 5px;
-    background-color: #f2f2f2;
+.credentials {
+    width: 450px;
+    height: 150px;
+    margin: 7rem auto;
+    padding: 1rem 1rem;
+    border: 1px solid white;
 }
 
-input[type=submit] {
-    background-color: #4caf50;
+.credentials h3 {
+    font-size: 1.75rem;
+}
+
+.credentials p {
+    font-size: 1.25rem;
+}
+
+.add-form,
+.register-form,
+.login-form,
+.upload-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
 }
 
 input[type=text].input-error,
@@ -280,56 +292,112 @@ textarea.input-error {
     min-height: 0.75rem;
 }
 
+@media only screen and (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+}
+
 .cat-details {
     background-color: #b3c7cc;
-    color: #222;
+    color: #222222;
     border: 1px solid black;
     display: grid;
+
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
+.upload-file {
+    display: flex;
+    align-items: center;
+}
+
+button,
+input[type=submit],
+.custom-file-upload {
+    background-color: black;
+    display: inline-block;
+    border: none;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px;
+    min-width: 10rem;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.custom-file-upload {
+    height: 2.75rem;
+}
+
+button:hover,
+input[type=submit]:hover,
+input[type=file]:hover {
+    opacity: 0.7;
+}
+
+input[type=file] {
+    display: none;
+}
+
+#file-selected {
+    height: 1.75rem;
+    min-height: 1.75rem;
+    width: 12rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    font-size: 1.25rem;
+    border: 1px solid black;
+    background-color: lightgoldenrodyellow;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-back,
+.btn-adopt,
+.btn-again {
+    width: 25%;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.btn-again {
+    border: 1px solid white;
+}
+
+.login-person>input[type=submit],
+.upload-file>input[type=submit],
+.register-person>input[type=submit],
+.add-cat>input[type=submit] {
+    background-color: #4CAF50;
+}
+
 .cat-info p {
-    margin: 10px 0px;
+    margin: 10px 0;
     padding-right: 1rem;
-
 }
 
+footer {
+    background-color: #333;
+    background-color: #111;
+    color: white;
+    text-align: center;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* skapar media queries */
-
-@media only screen and (max-width: 925px) {
-    .col {
-        grid-template-columns: 1fr 1fr;
-        margin: 0 0.5rem;
-        gap: 0.5rem;
-    }
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    /* Footer height */
 }
 
-@media only screen and (max-width: 625px) {
-    .col {
-        grid-template-columns: 1fr;
-        margin: 0 0.5rem;
-        gap: 0.5rem;
-    }
+.copyright {
+    line-height: 2.5rem;
 }

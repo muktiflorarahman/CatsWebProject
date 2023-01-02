@@ -1,4 +1,5 @@
 <?php
+include("templates/header.php");
 //inkluderar filen db_connect för att koppla databasen
 include("config/db_connect.php");
 
@@ -12,10 +13,6 @@ $cats = $stmt->fetchAll();
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include("templates/header.php"); ?>
 
 <div class="container">
     <h2>Katter utan familj</h2>
@@ -36,9 +33,11 @@ $cats = $stmt->fetchAll();
 
                     <?php if (isset($_SESSION["userid"])) { ?>
                         <div class="card-bottom">
-                            <button class="btn-details">
-                                <a href="details.php?id=<?php echo $cat['cats_id'] ?>" class="a-details">Info</a>
-                            </button>
+                            <a href="details.php?id=<?php echo $cat['cats_id'] ?>" class="a-details">
+                                <button class="btn-details">
+                                    Info
+                                </button>
+                            </a>
                         </div>
                     <?php } ?>
                 </div>

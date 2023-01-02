@@ -2,8 +2,11 @@
 
 include('config/db_connect.php');
 
-require('catValidator.php');
-require('catsList.php');
+require('res/catValidator.php');
+require('res/catsList.php');
+
+$dir = "img";
+$files = scandir($dir);
 
 $errors = [];
 if (isset($_POST['submit'])) {
@@ -90,17 +93,31 @@ if (isset($_POST['submit'])) {
 
     <div class="form-group">
       <label for="picture">Bild på katten</label>
-      <input <?php if (isset($errors['picture'])) {
+      <select <?php if (isset($errors['picture'])) {
                 echo 'class="input-error"';
-              } ?> placeholder="Filens namn..." type="text" name="picture" id="picture" value="<?php echo !empty($_POST['picture']) ? htmlspecialchars($_POST['picture']) : '' ?>" />
+              } ?> name="picture" id="picture" value="<?php echo !empty($_POST['picture']) ? htmlspecialchars($_POST['picture']) : '' ?>">
+        <option value="" disabled selected>Välj bildfil</option>
+        <?php foreach ($files as $file) {
+          if ($file == "." || $file == "..") continue;
+
+          echo ("<option value='" . $file . "'>" . $file . "</option>");
+        } ?>
+      </select>
+
       <div class="error">
         <?php echo $errors['picture'] ?? '' ?>
       </div>
     </div>
 
-    <div class="button add-cat">
-      <input type="submit" name="submit" value="Skicka" class="btn">
+    <div class="btn-group">
+      <div class="button add-cat">
+        <input type="submit" name="submit" value="Skicka" class="btn">
+      </div>
+      <a href="index.php" class="a-back">
+        <button type="button" class="btn-back">Gå tillbaka ></button>
+      </a>
     </div>
+
 
   </form>
 
