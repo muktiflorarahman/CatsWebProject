@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Registrera</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -66,7 +66,7 @@
                     <label for="alias">Alias</label>
                     <input <?php if (isset($errors['alias'])) {
                                 echo 'class="input-error"';
-                            } ?> placeholder="Ange ditt alias..." type="text" name="alias" id="alias" value="<?php echo !empty($_POST['alias']) ? htmlspecialchars($_POST['alias']) : '' ?>" />
+                            } ?> placeholder="Ange ditt alias..." type="text" name="alias" id="alias" value="<?php echo !empty($_POST['alias']) ? htmlspecialchars($_POST['alias']) : '' ?>">
                     <div class="error">
                         <?php echo $errors['name'] ?? '' ?>
                     </div>
@@ -76,7 +76,7 @@
                     <label for="email">Email</label>
                     <input <?php if (isset($errors['email'])) {
                                 echo 'class="input-error"';
-                            } ?> placeholder="Ange din email..." type="email" name="email" id="email" value="<?php echo !empty($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" />
+                            } ?> placeholder="Ange din email..." type="email" name="email" id="email" value="<?php echo !empty($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
                     <div class="error">
                         <?php echo $errors['name'] ?? '' ?>
                     </div>
@@ -86,17 +86,17 @@
                     <label for="password">Lösenord</label>
                     <input <?php if (isset($errors['password'])) {
                                 echo 'class="input-error"';
-                            } ?> placeholder="Ange ditt lösenord..." type="password" name="password" id="password" value="<?php echo !empty($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
+                            } ?> placeholder="Ange ditt lösenord..." type="password" name="password" id="password" value="<?php echo !empty($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>">
                     <div class="error">
                         <?php echo $errors['name'] ?? '' ?>
                     </div>
                 </div>
 
 
-                <div class="btn-group login-person">
-                    <input type="submit" name="submit" value="Registrera" class="btn" />
-                    <a href="login.php">
-                        <button type="button" class="link">Logga in></button>
+                <div class="btn-group register-person">
+                    <input type="submit" name="submit" value="Registrera" class="btn">
+                    <a href="login.php" class="button link">
+                        Logga in
                     </a>
                 </div>
 

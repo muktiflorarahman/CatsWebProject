@@ -4,6 +4,6 @@ VALUES ('Tom','Bengal', 'Bengal honkatt', 'bengal.jpg'),
 ('Nemo','Manx', 'Manx honkatt', 'manx.jpg'),
 ('Kitkat','Ragdoll', 'Ragdoll hankatt', 'ragdoll.jpeg'),
 ('Coco','Siamese', 'Siamese honkatt', 'siamese.jpg'),
-('Leo','Sphynx', 'Sphynx honkatt', 'bengal.webp');
+('Leo','Bengal', 'Bengal honkatt', 'bengal.jpg');
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
   <meta charset="UTF-8">
@@ -105,17 +105,22 @@
   } else {
 
   ?>
-    <section class="container login">
+    <section class="container upload">
+      <h2>Ladda upp en bild</h2>
       <form id="upload-form" class="upload-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
         <div class="btn-group upload-file">
-          <label for="fileToUpload" class="custom-file-upload">Välj bild</label>
+          <label for="fileToUpload" class="custom-file-upload">Välj bildfil</label>
           <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" name="submit" value="Ladda upp bild">
+          <input type="submit" name="submit" value="Ladda upp bild" id="uploadSubmit">
         </div>
         <div id="file-selected">
 
         </div>
       </form>
+
+      <div class="btn-group">
+        <a href="index.php" class="button btn-back">Gå tillbaka</a>
+      </div>
     </section>
   <?php } ?>
 

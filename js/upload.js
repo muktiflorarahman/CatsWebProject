@@ -4,12 +4,22 @@ function main() {
     /* skapar handtag till div:s med id */
     const uploadFile = document.getElementById("fileToUpload");
     const showFile = document.getElementById("file-selected");
+    const uploadSubmit = document.getElementById("uploadSubmit");
 
-    uploadFile.addEventListener("change", function () {
-        let fileName = "";
-        fileName = this.files[0].name;
-        showFile.innerHTML = fileName;
-    })
+    if (uploadSubmit) {
+        uploadSubmit.disabled = true;
+    }
+
+    if (uploadFile) {
+        uploadFile.addEventListener("change", function () {
+            let fileName = "";
+            fileName = this.files[0].name;
+            showFile.innerHTML = fileName;
+            uploadSubmit.disabled = false;
+        })
+
+    }
+
 }
 
 
@@ -17,5 +27,6 @@ function main() {
 
 
 
-
+//main anropas
+//när 
 document.addEventListener("DOMContentLoaded", main);

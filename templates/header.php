@@ -8,10 +8,11 @@ if ($_SERVER["QUERY_STRING"] == "noname") {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <title>Kattadoption</title>
+    <script src="https://kit.fontawesome.com/cb9d280861.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -30,37 +31,37 @@ if ($_SERVER["QUERY_STRING"] == "noname") {
                         <?php echo $_SESSION["username"]; ?>
                     </div>
                     <ul>
-                        <a href="logout.php" class="button">
-                            <li class="nav-link">
-                                LOGGA UT
-                            </li>
-                        </a>
-                        <a href="addCat.php" class="button">
-                            <li class="nav-link">
-                                NY KATT
-                            </li>
-                        </a>
                         <?php if ($_SESSION['username'] == 'mukti') { ?>
-                            <a href="upload.php" class="button">
-                                <li class="nav-link">
+                            <li>
+                                <a href="upload.php" class="nav-link">
                                     NY BILD
-                                </li>
-                            </a>
+                                </a>
+                            </li>
                         <?php } ?>
+                        <li>
+                            <a href="addCat.php" class="nav-link">
+                                NY KATT
+                            </a>
+                        </li>
+                        <li>
+                            <a href="logout.php" class="nav-link">
+                                LOGGA UT
+                            </a>
+                        </li>
 
 
                     <?php } else { ?>
 
-                        <a href="register.php" class="button">
-                            <li class="nav-link">
+                        <li>
+                            <a href="register.php" class="nav-link">
                                 NY ANVÄNDARE
-                            </li>
-                        </a>
-                        <a href="login.php" class="button">
-                            <li class="nav-link">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.php" class="nav-link">
                                 LOGGA IN
-                            </li>
-                        </a>
+                            </a>
+                        </li>
 
                     <?php } ?>
 

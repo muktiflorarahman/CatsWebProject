@@ -1,9 +1,17 @@
 <?php
 //skapar variabler för att kunna skapa koppling till databas
+//koppling till lokal databasserver
 $password = "Ia@rW(zRN.ydJi)c";
 $servername = "localhost";
 $username = "mukti";
 $database = "kattadoption";
+
+//koppling till databasserver
+/* $password = "muktiMUKTI";
+$servername = "localhost";
+$username = "ackexyz_mukti";
+$database = "ackexyz_kattadoption"; */
+
 
 //kopplar databasen med PDO (php database object)
 $conn = "mysql:host=$servername;dbname=$database;charset=UTF8";

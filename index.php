@@ -19,7 +19,9 @@ $cats = $stmt->fetchAll();
 
     <div class="row">
         <div class="col">
-
+            <!-- loop som loopar igenom varje katt -->
+            <!-- För varje katt finns det information -->
+            <!-- bild, namn, ras -->
             <?php foreach ($cats as $cat) : ?>
 
                 <div class="card">
@@ -34,9 +36,9 @@ $cats = $stmt->fetchAll();
                     <?php if (isset($_SESSION["userid"])) { ?>
                         <div class="card-bottom">
                             <a href="details.php?id=<?php echo $cat['cats_id'] ?>" class="a-details">
-                                <button class="btn-details">
+                                <div class="btn-details">
                                     Info
-                                </button>
+                                </div>
                             </a>
                         </div>
                     <?php } ?>

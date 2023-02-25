@@ -1,3 +1,6 @@
+<!-- fil för att ta bort katten från databas  -->
+<!-- efter att katten har adopterats -->
+<!-- detta sker i php i denna fil via if sats och try-catch block -->
 <?php
 include("config/db_connect.php");
 if (isset($_POST['adopt'])) {
@@ -19,16 +22,21 @@ if (isset($_POST['adopt'])) {
     $pdo = null;
 }
 
+/* inkluderar header.php */
 include("templates/header.php");
 ?>
 
 <div class="container">
+    <!-- om adoption har skett -->
+    <!-- skrivs användarens username ut med den adopterade kattens namn (konkatenering) -->
     <?php if ($id_to_adopt) : ?>
         <h3><?php echo ($_SESSION["username"] . " har adopterat katten " . $name_to_adopt); ?></h3>
         <div class="cat-details">
             <div class="cat-img">
-                <img src="img/<?php echo htmlspecialchars($picture_to_adopt); ?>" alt="bild på <?php echo htmlspecialchars($picture_to_adopt); ?>" width="400" height="400" />
+                <img src="img/<?php echo htmlspecialchars($picture_to_adopt); ?>" alt="bild på <?php echo htmlspecialchars($picture_to_adopt); ?>" width="400" height="400">
             </div>
+            <!-- bekräftelse som användaren fått efter att ha adopterat katt -->
+            <!-- användarens email tas från databasen -->
             <div class="cat-info">
                 <p><b>Ras: </b><?php echo htmlspecialchars($breed_to_adopt); ?></p>
                 <p><b>Information: </b><?php echo htmlspecialchars($info_to_adopt); ?></p>
@@ -37,11 +45,14 @@ include("templates/header.php");
             </div>
         </div>
 
-
+        <!-- else sats -->
+        <!-- om det ej finns katt med det id numret -->
     <?php else : ?>
         <h3>Det finns ingen katt med det id-numret</h3>
     <?php endif ?>
-    <a href="index.php"><button class="btn-back">Gå tillbaka</button></a>
+    <a href="index.php" class="btn-back button">
+        Gå tillbaka <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </a>
 
 
 </div>
